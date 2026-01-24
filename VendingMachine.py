@@ -17,3 +17,7 @@ class VendingMachine:
         self.coins += coinInput
         return self.coins
     
+    def returnCoins(self):
+        coins_to_return = self.coins
+        self.coins = 0
+        return coins_to_return
