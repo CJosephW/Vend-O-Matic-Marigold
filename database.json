@@ -3,17 +3,17 @@
         "1":{
             "coins": 0,
             "inventory": {
-                "1":{
+                "A1":{
                     "name": "Pepsi",
                     "amount":5,
                     "price": 2
                 },
-                "2":{
+                "A2":{
                     "name": "Sprite",
                     "amount":5,
                     "price": 2
                 },
-                "3": {
+                "A3": {
                     "name": "Coke",
                     "amount": 5,
                     "price": 2

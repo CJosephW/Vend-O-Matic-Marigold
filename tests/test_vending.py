@@ -25,7 +25,16 @@ class TestDelete(unittest.TestCase):
     
     def test_returns_coins_inserted(self):
         self.vm.deposit(1)
-        self.assertEqual(self.vm.returnCoins(), 1)
+        self.assertEqual(self.vm.return_coins(), 1)
+
+class TestGetInventory(unittest.TestCase):
+    def setUp(self):
+        self.vm = VendingMachine("1")
+
+    def test_returs_correct_inventory(self):
+        self.assertEqual(self.vm.get_inventory(), {"A1":5, "A2":5, "A3":5})
+        
+
 
 if __name__ == '__main__':
     unittest.main()

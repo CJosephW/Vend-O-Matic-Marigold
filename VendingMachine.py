@@ -17,7 +17,14 @@ class VendingMachine:
         self.coins += coinInput
         return self.coins
     
-    def returnCoins(self):
+    def return_coins(self):
         coins_to_return = self.coins
         self.coins = 0
         return coins_to_return
+    
+    def get_inventory(self):
+        inventory_count =  {
+            item: self.inventory[f"{item}"]["amount"]
+            for item in self.inventory
+        }
+        return inventory_count
