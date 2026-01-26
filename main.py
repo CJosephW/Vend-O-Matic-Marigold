@@ -18,7 +18,7 @@ def put_change():
 
 @app.route("/", methods=["DELETE"])
 def delete_coins():
-    result = goodyear.return_coins()
+    result = goodyear.end_transaction()
     response = make_response("", 204)
     response.headers["X-Coins"] = result
     return response

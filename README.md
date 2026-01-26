@@ -7,29 +7,33 @@
 
 [Project Requirements](#project-requirements)
 
+[Design Decisions](#design-decisions)
+
 ## Setup
-Firstly setup your python virtual enviornment inside the repo
 
 ### OSX/Linux 
-``` python3 -m venv myenv ```
+Inside your terminal please install XCode Command Line Tools if you have not already done so
 
-```source myenv/bin/activate```
+``` xcode-select --install ```
+
+Then while inside of the repo run:
+
+```make all```
 
 ### Windows
-``` python3 -m venv myenv ```
+For Windows please ensure you have git installed locally
 
-```.\myenv\Scripts\activate.bat  (or .ps1 if using powershell)```
+https://git-scm.com/install/windows
 
-Then install the required packages using pip
+To start the API, in your git bash run(inside of the cloned repository) 
 
-``` pip install -r requirements.txt```
+```make all ```
 
 ## Testing
-For testing I set up sonme simple unit tests using the built in unittests library these can be ran using
+The above ``` make all ``` command will run unit tests, and start the api. However, if you want to run integration tests assuming you have ran the above command you can run:
 
-``` python -m unittest discover -s tests ```
+```make integration``` or ```make test``` to run the unit tests individually
 
-For a 'integration' type test I just made a simple pythong script to ensure the specification requests are returning the correct responses 
 
 ## Project Requirements
 1. The machine only accepts US quarters - you physically cannot put anything else in, and
@@ -44,7 +48,18 @@ customer.
 6. All test interactions will be performed with a single content type of “application/json”.
 ![route specs](./img/route_specifications.png)
 
-## Design/Technical Decisions
-For this project I followed test driven development for this project, so first building out the test cases and then continuing to the REST route functionalty from that point onwards.
+## Design Decisions
+For this project, I focused on separation of concerns, object-oriented design, and test-driven development.
 
-For the database I elected to use a in memory json file 
+The core vending machine behavior is implemented in a standalone class that contains all business logic, including coin validation, inventory checks, and transaction handling.
+
+Error handling is implemented using three explicit domain exceptions, which are bubbled up and handled at the REST layer.
+
+Only two external packages were added:
+
+requests — used for integration tests that verify route behavior
+
+Flask — used as an HTTP layer to expose functionality via REST routes
+
+An in-memory JSON structure is used as a simple storage layer to represent inventory and pricing.
+

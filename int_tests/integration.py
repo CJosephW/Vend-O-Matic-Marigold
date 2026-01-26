@@ -24,6 +24,7 @@ if get_item_inventory_response.status_code == 200 and get_item_inventory_respons
     print("GET /inventory/<id> OKAY")
 
 requests.put(url, json={"coin":1})
+requests.put(url, json={"coin":1})
 
 vend_request = requests.put(url + "inventory/A1")
 if(vend_request.status_code == 200):
