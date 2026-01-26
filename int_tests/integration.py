@@ -1,7 +1,7 @@
 # simple "integration" test script
 import requests
 
-url = "http://localhost:5000/"
+url = "http://127.0.0.1:5000/"
 
 put_response = requests.put(url, json={"coin":1})
 

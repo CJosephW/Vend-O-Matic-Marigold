@@ -5,9 +5,11 @@ VENV = .venv
 ifeq ($(OS),Windows_NT)
 	PYTHON = $(VENV)/Scripts/python.exe
 	ACTIVATE = $(VENV)/Scripts/activate
+	PYTHON_EXECUTABLE = python
 else
 	PYTHON = $(VENV)/bin/python
 	ACTIVATE = $(VENV)/bin/activate
+	PYTHON_EXECUTABLE = python3
 endif
 
 all: install test run
@@ -17,7 +19,7 @@ install: $(ACTIVATE)
 
 $(ACTIVATE): requirements.txt
 	@echo "Creating virtual environment..."
-	python -m venv $(VENV)
+	$(PYTHON_EXECUTABLE) -m venv $(VENV)
 	$(PYTHON) -m pip install -r requirements.txt
 	@echo "Virtual environment ready."
 
