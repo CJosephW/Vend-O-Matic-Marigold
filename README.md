@@ -12,8 +12,8 @@
 ## Setup
 
 ### OSX/Linux 
-Inside your terminal please install XCode Command Line Tools if you have not already done so
-
+Inside your terminal please install XCode Command Line Tools and Python if you have not already done so
+``` brew install python ```
 ``` xcode-select --install ```
 
 Then while inside of the repo run:
@@ -21,7 +21,8 @@ Then while inside of the repo run:
 ```make all```
 
 ### Windows
-For Windows please ensure you have git installed locally
+For Windows please ensure you have git and Python installed locally
+https://www.python.org/downloads/
 
 https://git-scm.com/install/windows
 
@@ -30,6 +31,7 @@ To start the API, in your git bash run(inside of the cloned repository)
 ```make all ```
 
 ## Testing
+
 The above ``` make all ``` command will run unit tests, and start the api. However, if you want to run integration tests assuming you have ran the above command you can run:
 
 ```make integration``` or ```make test``` to run the unit tests individually
