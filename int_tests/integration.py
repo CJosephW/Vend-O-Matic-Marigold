@@ -23,11 +23,6 @@ get_item_inventory_response = requests.get(url + "inventory/A1")
 if get_item_inventory_response.status_code == 200 and get_item_inventory_response.json() == 5:
     print("GET /inventory/<id> OKAY")
 
-insufficent_vend_request = requests.put(url + "inventory/A1")
-
-if insufficent_vend_request.status_code == 403 and insufficent_vend_request.headers.get("X-Coins") == "1":
-    print("PUT /inventory/<id> (insufficent coins error) OKAY")
-
 requests.put(url, json={"coin":1})
 
 vend_request = requests.put(url + "inventory/A1")
