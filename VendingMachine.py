@@ -22,7 +22,9 @@ class VendingMachine:
         self.coins = 0
         return coins_to_return
     
-    def get_inventory(self):
+    def get_inventory(self, id=None):
+        if(id is not None):
+            return self.inventory[f"{id}"]["amount"]
         inventory_count =  {
             item: self.inventory[f"{item}"]["amount"]
             for item in self.inventory

@@ -28,5 +28,11 @@ def get_inventory():
     response = make_response(jsonify(result), 200)
     return response
 
+@app.route('/inventory/<id>', methods=['GET'])
+def get_item_inventory(id):
+    result = goodyear.get_inventory(id)
+    response = make_response(jsonify(result), 200)
+    return response
+
 if __name__ == "__main__":
     app.run(debug=True)

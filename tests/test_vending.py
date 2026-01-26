@@ -34,6 +34,12 @@ class TestGetInventory(unittest.TestCase):
     def test_returs_correct_inventory(self):
         self.assertEqual(self.vm.get_inventory(), {"A1":5, "A2":5, "A3":5})
         
+class TestGetItemInventory(unittest.TestCase):
+    def setUp(self):
+        self.vm = VendingMachine("2")
+    
+    def test_returns_correct_item_inventory(self):
+        self.assertEqual(self.vm.get_inventory("A2"), 4)
 
 
 if __name__ == '__main__':
